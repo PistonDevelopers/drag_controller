@@ -1,0 +1,18 @@
+[package]
+
+name = "drag_controller"
+version = "0.0.0"
+authors = [
+    "bvssvni <bvssvni@gmail.com>"
+]
+tags = []
+
+[lib]
+
+name = "drag_controller"
+path = "src/lib.rs"
+
+[dependencies.event]
+
+git = "https://github.com/PistonDevelopers/event"
+
