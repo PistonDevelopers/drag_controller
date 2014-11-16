@@ -2,3 +2,5 @@ drag_controller [![Build Status](https://travis-ci.org/PistonDevelopers/drag_con
 ===============
 
 A drag controller
+
+[How to contribute](https://github.com/PistonDevelopers/piston/blob/master/CONTRIBUTING.md)
