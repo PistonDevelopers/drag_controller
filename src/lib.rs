@@ -23,13 +23,13 @@ pub enum Drag {
     /// for example when the window is defocused.
     /// By returning true, the drag will continue when
     /// the window retrieves focus.
-    InterruptDrag,
+    Interrupt,
     /// Starts the drag.
-    StartDrag(f64, f64),
+    Start(f64, f64),
     /// Moves the drag.
-    MoveDrag(f64, f64),
+    Move(f64, f64),
     /// Ends the drag.
-    EndDrag(f64, f64),
+    End(f64, f64),
 }
 
 /// Controls dragging.
@@ -57,14 +57,14 @@ impl DragController {
         e.mouse_cursor(|x, y| {
             self.pos = [x, y];
             if self.drag {
-                self.drag = f(MoveDrag(x, y));
+                self.drag = f(Drag::Move(x, y));
             }
         });
         e.press(|button| {
             match button {
                 Mouse(mouse::Left) => {
                     if !self.drag {
-                        self.drag = f(StartDrag(self.pos[0], self.pos[1]));
+                        self.drag = f(Drag::Start(self.pos[0], self.pos[1]));
                     }
                 }
                 _ => {}
@@ -78,7 +78,7 @@ impl DragController {
             match button {
                 Mouse(mouse::Left) => {
                     if self.drag {
-                        f(EndDrag(self.pos[0], self.pos[1]));
+                        f(Drag::End(self.pos[0], self.pos[1]));
                     }
                     self.drag = false;
                 }
@@ -87,8 +87,9 @@ impl DragController {
         });
         e.focus(|focused| {
             if focused == false {
-                self.drag = f(InterruptDrag);
+                self.drag = f(Drag::Interrupt);
             }
         });
     }
 }
+
