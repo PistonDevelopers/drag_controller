@@ -12,10 +12,10 @@ use event::{
     PressEvent,
     ReleaseEvent,
 };
-use input::{
-    mouse,
+use input::Button::{
     Mouse,
 };
+use input::mouse;
 
 /// Describes a drag
 pub enum Drag {
@@ -62,7 +62,7 @@ impl DragController {
         });
         e.press(|button| {
             match button {
-                Mouse(mouse::Left) => {
+                Mouse(mouse::Button::Left) => {
                     if !self.drag {
                         self.drag = f(Drag::Start(self.pos[0], self.pos[1]));
                     }
@@ -76,7 +76,7 @@ impl DragController {
 
         e.release(|button| {
             match button {
-                Mouse(mouse::Left) => {
+                Mouse(mouse::Button::Left) => {
                     if self.drag {
                         f(Drag::End(self.pos[0], self.pos[1]));
                     }
