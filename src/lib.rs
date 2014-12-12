@@ -1,4 +1,5 @@
 #![deny(missing_docs)]
+#![deny(missing_copy_implementations)]
 
 //! A drag controller
 
@@ -12,12 +13,11 @@ use event::{
     PressEvent,
     ReleaseEvent,
 };
-use input::Button::{
-    Mouse,
-};
-use input::mouse;
+use input::Button::Mouse;
+use input::MouseButton;
 
 /// Describes a drag
+#[deriving(Copy)]
 pub enum Drag {
     /// When the drag is interrupted by something,
     /// for example when the window is defocused.
@@ -33,6 +33,7 @@ pub enum Drag {
 }
 
 /// Controls dragging.
+#[deriving(Copy)]
 pub struct DragController {
     /// Whether to drag or not.
     pub drag: bool,
@@ -62,7 +63,7 @@ impl DragController {
         });
         e.press(|button| {
             match button {
-                Mouse(mouse::Button::Left) => {
+                Mouse(MouseButton::Left) => {
                     if !self.drag {
                         self.drag = f(Drag::Start(self.pos[0], self.pos[1]));
                     }
@@ -76,7 +77,7 @@ impl DragController {
 
         e.release(|button| {
             match button {
-                Mouse(mouse::Button::Left) => {
+                Mouse(MouseButton::Left) => {
                     if self.drag {
                         f(Drag::End(self.pos[0], self.pos[1]));
                     }
