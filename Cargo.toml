@@ -1,18 +1,23 @@
 [package]
 
-name = "drag_controller"
+name = "piston2d-drag_controller"
 version = "0.0.0"
 authors = [
     "bvssvni <bvssvni@gmail.com>"
 ]
-tags = []
+keywords = ["drag", "drop", "controller", "piston", "2d"]
+description = "A drag controller"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/pistondevelopers/drag_controller.git"
+homepage = "https://github.com/pistondevelopers/drag_controller"
 
 [lib]
 
 name = "drag_controller"
 path = "src/lib.rs"
 
-[dependencies.event]
+[dependencies.pistoncore-event]
 
 git = "https://github.com/PistonDevelopers/event"
 
