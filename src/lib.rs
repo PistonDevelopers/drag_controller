@@ -17,7 +17,7 @@ use input::Button::Mouse;
 use input::MouseButton;
 
 /// Describes a drag
-#[deriving(Copy)]
+#[derive(Copy)]
 pub enum Drag {
     /// When the drag is interrupted by something,
     /// for example when the window is defocused.
@@ -33,12 +33,12 @@ pub enum Drag {
 }
 
 /// Controls dragging.
-#[deriving(Copy)]
+#[derive(Copy)]
 pub struct DragController {
     /// Whether to drag or not.
     pub drag: bool,
     /// The current positon of dragging.
-    pub pos: [f64, ..2],
+    pub pos: [f64; 2],
 }
 
 impl DragController {
