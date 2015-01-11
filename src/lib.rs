@@ -54,7 +54,10 @@ impl DragController {
     ///
     /// Calls closure when events for dragging happen.
     /// If the drag event callback returns `false`, it will cancel dragging.
-    pub fn event<E: GenericEvent>(&mut self, e: &E, f: |Drag| -> bool) {
+    pub fn event<E: GenericEvent, F>(&mut self, e: &E, mut f: F)
+        where
+            F: FnMut(Drag) -> bool
+    {
         e.mouse_cursor(|x, y| {
             self.pos = [x, y];
             if self.drag {
