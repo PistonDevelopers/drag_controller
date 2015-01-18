@@ -18,6 +18,8 @@ name = "drag_controller"
 path = "src/lib.rs"
 
 [dependencies.pistoncore-event]
-
 git = "https://github.com/PistonDevelopers/event"
+
+[dependencies.pistoncore-input]
+git = "https://github.com/PistonDevelopers/input"
 
