@@ -1,7 +1,7 @@
 [package]
 
 name = "piston2d-drag_controller"
-version = "0.2.0"
+version = "0.3.0"
 authors = [
     "bvssvni <bvssvni@gmail.com>"
 ]
@@ -18,6 +18,6 @@ name = "drag_controller"
 path = "src/lib.rs"
 
 [dependencies]
-pistoncore-event = "0.2.0"
-pistoncore-input = "0.1.0"
+pistoncore-event = "0.3.0"
+pistoncore-input = "0.2.0"
 
