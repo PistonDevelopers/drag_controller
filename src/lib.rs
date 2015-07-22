@@ -3,18 +3,17 @@
 
 //! A drag controller
 
-extern crate event;
 extern crate input;
 
-use event::{
+use input::{
     FocusEvent,
     GenericEvent,
+    MouseButton,
     MouseCursorEvent,
     PressEvent,
     ReleaseEvent,
 };
 use input::Button::Mouse;
-use input::MouseButton;
 
 /// Describes a drag
 #[derive(Copy, Clone)]
