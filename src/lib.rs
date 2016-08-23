@@ -6,12 +6,8 @@
 extern crate input;
 
 use input::{
-    FocusEvent,
     GenericEvent,
     MouseButton,
-    MouseCursorEvent,
-    PressEvent,
-    ReleaseEvent,
 };
 use input::Button::Mouse;
 
