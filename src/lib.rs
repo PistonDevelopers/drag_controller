@@ -53,10 +53,10 @@ impl DragController {
         where
             F: FnMut(Drag) -> bool
     {
-        e.mouse_cursor(|x, y| {
-            self.pos = [x, y];
+        e.mouse_cursor(|pos| {
+            self.pos = pos;
             if self.drag {
-                self.drag = f(Drag::Move(x, y));
+                self.drag = f(Drag::Move(pos[0], pos[1]));
             }
         });
         e.press(|button| {
